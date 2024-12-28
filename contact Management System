@@ -1,0 +1,42 @@
+#include <stdio.h>
+struct Contact {
+    char name[100];
+    char phone[20];
+};
+
+int main() {
+    struct Contact contacts[100];
+    int choice, n = 0;
+
+    do {
+        printf("Contact Management System\n");
+        printf("1. Add Contact\n");
+        printf("2. Display Contacts\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice) {
+            case 1:
+                printf("Enter name: ");
+                scanf("%s", contacts[n].name);
+                printf("Enter phone: ");
+                scanf("%s", contacts[n].phone);
+                n++;
+                break;
+            case 2:
+                printf("Contacts:\n");
+                for (int i = 0; i < n; i++) {
+                    printf("Name: %s\n", contacts[i].name);
+                    printf("Phone: %s\n\n", contacts[i].phone);
+                }
+                break;
+            case 3:
+                printf("Exiting program. Goodbye!\n");
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    } while (choice != 3);
+    return 0;
+}
